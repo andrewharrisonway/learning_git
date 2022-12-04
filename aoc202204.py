@@ -16,8 +16,8 @@ def double_section_finder(range1,range2):
 		member_range2  = set([i for i in range(
 							int(member2.split('-')[0]),
 							int(member2.split('-')[1])+1)])
-		if len(member_range1.union(member_range2)) == len(member_range1) or \
-			len(member_range1.union(member_range2)) == len(member_range2):
+		if len(member_range1.union(member_range2)) == \
+			max([len(member_range1), len(member_range2)]):
 				double_section_count += 1
 	return double_section_count
 
@@ -36,7 +36,8 @@ def any_overlap_finder(range1,range2):
 		member_range2  = set([i for i in range(
 							int(member2.split('-')[0]),
 							int(member2.split('-')[1])+1)])
-		if len(member_range1.union(member_range2)) < len(member_range1) + len(member_range2):
+		if len(member_range1.union(member_range2)) < \
+			len(member_range1) + len(member_range2):
 				any_overlap_count += 1
 	return any_overlap_count
 
